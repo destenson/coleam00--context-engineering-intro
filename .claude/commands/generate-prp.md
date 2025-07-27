@@ -1,8 +1,13 @@
 # Create PRP
 
-## Feature file: $ARGUMENTS
+## Usage
+- With feature file: `/generate-prp PRPs/feature.md`
+- With description: `/generate-prp "Add error handling for API rate limits"`
+- Combined: `/generate-prp PRPs/feature.md "Additional context about the feature"`
 
-Generate a complete PRP for general feature implementation with thorough research. Ensure context is passed to the AI agent to enable self-validation and iterative refinement. Read the feature file first to understand what needs to be created, how the examples provided help, and any other considerations.
+## Input: $ARGUMENTS
+
+Generate a complete PRP for the specified feature implementation with thorough research. If a file path is provided, read it first to understand requirements. If a description is provided, use it as the feature specification. Ensure context is passed to the AI agent to enable self-validation and iterative refinement.
 
 The AI agent only gets the context you are appending to the PRP and training data. Assuma the AI agent has access to the codebase and the same knowledge cutoff as you, so its important that your research findings are included or referenced in the PRP. The Agent has Websearch capabilities, so pass urls to documentation and examples.
 
@@ -20,9 +25,11 @@ The AI agent only gets the context you are appending to the PRP and training dat
    - Implementation examples (GitHub/StackOverflow/blogs)
    - Best practices and common pitfalls
 
-3. **User Clarification** (if needed)
+3. **User Clarification** (as needed)
    - Specific patterns to mirror and where to find them?
    - Integration requirements and where to find them?
+   - Any existing documentation or examples to reference?
+   - If there are any remaining ambiguities or uncertainties, ask the user for clarification before proceeding.
 
 ## PRP Generation
 
@@ -50,7 +57,20 @@ uv run pytest tests/ -v
 
 ```
 
+eg for rust
+```bash
+# Syntax/Style
+cargo fmt --check && cargo clippy --all-targets --all-features -- -D
+# Unit Tests
+cargo test --all-targets --all-features -- --nocapture
+```
+
+
 *** CRITICAL AFTER YOU ARE DONE RESEARCHING AND EXPLORING THE CODEBASE BEFORE YOU START WRITING THE PRP ***
+
+### Additional Considerations
+
+If the PRP is very large, consider breaking it into smaller PRPs that can be implemented independently. Each PRP should have its own context and validation gates.
 
 *** ULTRATHINK ABOUT THE PRP AND PLAN YOUR APPROACH THEN START WRITING THE PRP ***
 
@@ -60,7 +80,7 @@ Save as: `PRPs/{feature-name}.md`
 ## Quality Checklist
 - [ ] All necessary context included
 - [ ] Validation gates are executable by AI
-- [ ] References existing patterns
+- [ ] References existing or idiomatic patterns, if applicable
 - [ ] Clear implementation path
 - [ ] Error handling documented
 
