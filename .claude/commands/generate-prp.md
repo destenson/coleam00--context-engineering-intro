@@ -72,6 +72,8 @@ cargo test --all-targets --all-features -- --nocapture
 
 If the PRP is very large, consider breaking it into smaller PRPs that can be implemented independently. Each PRP should have its own context and validation gates.
 
+Do not write code directly in the PRP. Instead, focus on providing a clear, detailed plan that the AI agent can follow to implement the feature successfully.
+
 *** ULTRATHINK ABOUT THE PRP AND PLAN YOUR APPROACH THEN START WRITING THE PRP ***
 
 ## Output
