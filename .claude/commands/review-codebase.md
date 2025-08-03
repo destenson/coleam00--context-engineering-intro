@@ -6,72 +6,43 @@ Make sure to check README.md, TODO.md, and any other relevant documentation file
 
 ## Phase 1: Current State Analysis
 
+0. **Initial Setup**
+   - Read through README.md and TODO.md for context
+   - Familiarize yourself with the project structure
+   - Check the git log for recent changes and PRs
+
 1. **Check Implementation Status**
-   ```bash
-   # List core modules
-   find src/ -name "*.rs" -type f | head -20
-   
-   # Check for incomplete implementations
-   rg -c "todo!\(|unimplemented!\(" src/
-   
-   # Find main algorithm implementations
-   rg -l "impl.*(SpatialPooler|TemporalMemory|Classifier|AnomalyDetector)" src/
-   ```
+   - List core modules (*.rs files) and their current status
+   - Identify any broken or incomplete components (e.g., TODOs, unimplemented features)
+   - Check for any recently changed files
 
 2. **Test Coverage Assessment**
-   ```bash
-   # Run tests and capture results
-   cargo test --features "std,itertools,rayon,ndarray" 2>&1 | grep -E "test result:|[0-9]+ passed"
-   
-   # Count test functions
-   rg -c "#\[test\]|#\[cfg\(test\)\]" src/
-   ```
+   - Run tests and capture results
+   - Count test functions
 
 3. **Examples and Integration**
-   ```bash
-   # List and test examples
-   ls -la examples/
-   for example in examples/*.rs; do
-     name=$(basename "$example" .rs)
-     echo "Testing example: $name"
-     cargo run --example "$name" 2>&1 | head -5
-   done
-   ```
+   - List and test examples
+   - Identify any missing examples or integration tests
 
 ## Phase 2: PRP Status Review
 
 1. **List PRPs and Check Status**
-   ```bash
-   # List all PRPs
-   ls -la PRPs/*.md
-   
-   # Extract status indicators
-   for prp in PRPs/*.md; do
-     echo "\n=== $(basename "$prp") ==="
-     grep -i "confidence.*score\|status.*complete\|implemented" "$prp" | head -3
-   done
-   ```
+   - List all PRPs (*.md files) in the PRPs directory
+   - Check if each PRP has been executed or is still pending
+   - Identify any PRPs that are incomplete or not yet implemented
 
 2. For each PRP, determine if its target functionality exists in the codebase
+   - If it exists, check if it is working as intended
+   - If it does not exist, assess the impact of implementing it
 
 ## Phase 3: Strategic Assessment
 
 1. **Identify Gaps and Technical Debt**
-   ```bash
-   # Count TODOs and issues
-   rg -c "TODO|FIXME|HACK" src/
-   
-   # Check error handling quality
-   rg "unwrap\(\)|expect\(|panic!" src/ | wc -l
-   ```
+   - Count TODOs and issues (e.g., "FIXME", "HACK") in the codebase
+   - Check for error handling quality (e.g., count the use of `unwrap()`, `expect()`, `panic!()`)
 
 2. **Validate Build Configuration**
-   ```bash
-   # Test feature combinations
-   cargo build --features "std,itertools,rayon,ndarray"
-   cargo clippy --all-targets --features "std,itertools,rayon,ndarray"
-   cargo doc --no-deps --features "std,itertools,rayon,ndarray"
-   ```
+   - Test feature combinations
 
 ## Output Format
 
