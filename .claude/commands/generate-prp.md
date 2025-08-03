@@ -1,4 +1,4 @@
-# Create PRP
+# Create PRP (Project Requirement and Planning) for Feature Implementation
 
 ## Usage
 - With feature file: `/generate-prp PRPs/feature.md`
@@ -74,6 +74,8 @@ If the PRP is very large, consider breaking it into smaller PRPs that can be imp
 
 Do not write code directly in the PRP. Instead, focus on providing a clear, detailed plan that the AI agent can follow to implement the feature successfully.
 
+DO NOT PUT CODE IN THE PRP. FOCUS ON THE WHAT, WHERE, AND WHY, NOT THE HOW.
+
 *** ULTRATHINK ABOUT THE PRP AND PLAN YOUR APPROACH THEN START WRITING THE PRP ***
 
 ## Output
@@ -89,3 +91,5 @@ Save as: `PRPs/{feature-name}.md`
 Score the PRP on a scale of 1-10 (confidence level to succeed in one-pass implementation using claude codes)
 
 Remember: The goal is one-pass implementation success through comprehensive context.
+
+Do not write code in the PRP!
