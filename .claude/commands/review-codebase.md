@@ -24,11 +24,12 @@ Make sure to check README.md, TODO.md, and any other relevant documentation file
    - List and test examples
    - Identify any missing examples or integration tests
 
-## Phase 2: PRP Status Review
+## Phase 2: PRP (Proposed Refinement Plan, or Project Requirements and Planning) Status Review
 
 1. **List PRPs and Check Status**
    - List all PRPs (*.md files) in the PRPs directory
-   - Check if each PRP has been executed or is still pending
+   - Check if each PRP has been executed or is still pending, or if it has been partially completed
+   - Identify any PRPs that are fully implemented and working
    - Identify any PRPs that are incomplete or not yet implemented
 
 2. For each PRP, determine if its target functionality exists in the codebase
@@ -39,7 +40,7 @@ Make sure to check README.md, TODO.md, and any other relevant documentation file
 
 1. **Identify Gaps and Technical Debt**
    - Count TODOs and issues (e.g., "FIXME", "HACK") in the codebase
-   - Check for error handling quality (e.g., count the use of `unwrap()`, `expect()`, `panic!()`)
+   - Check for error handling quality (e.g., count the use of `unwrap()`, `expect()`, `panic!()` in non-test code)
 
 2. **Validate Build Configuration**
    - Test feature combinations
@@ -64,7 +65,7 @@ Provide an update to a structured report at `codebase-review-report.md` with:
 
 ### Recommendation
 
-**Next Action**: [Execute PRP X] OR [Create new PRP for Y]
+**Next Action**: [Execute PRP(s) X] OR [Create new PRP(s) for Y]
 
 **Justification**:
 - Current capability: [What works now]
