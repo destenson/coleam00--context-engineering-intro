@@ -45,6 +45,16 @@ Make sure to check README.md, TODO.md, and any other relevant documentation file
 2. **Validate Build Configuration**
    - Test feature combinations
 
+## Phase 4: Record Implementation Decisions
+
+Document the key architectural decisions made by the user during the implementation:
+  1. Architectural decisions
+  2. Code quality improvements
+  3. Design patterns
+  4. Technical solutions
+  5. What wasn't implemented
+  6. Lessons learned
+
 ## Output Format
 
 Provide an update to a structured report at `codebase-review-report.md` with:
