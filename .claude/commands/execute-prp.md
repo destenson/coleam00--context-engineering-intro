@@ -1,6 +1,6 @@
 # Execute BASE PRP
 
-Implement a feature using using the PRP file. Start by reading `codebase-review-report.md`, if it exists, for important context and requirements.
+Implement a feature using using the PRP file. Start by reading `codebase-review-report.md`, if it exists, for important context and requirements. Then read the specified PRP file and follow all instructions in it. Update the README.md, and/or TODO.md, as needed.
 
 ## PRP File: $ARGUMENTS
 
