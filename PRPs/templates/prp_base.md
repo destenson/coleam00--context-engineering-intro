@@ -58,26 +58,25 @@ Template optimized for AI agents to implement features with sufficient context a
 ```
 
 ### Known Gotchas of our codebase & Library Quirks
-```python
-# CRITICAL: [Library name] requires [specific setup]
-# Example: FastAPI requires async functions for endpoints
-# Example: This ORM doesn't support batch inserts over 1000 records
-# Example: We use pydantic v2 and  
-```
+
+- CRITICAL: [Library name] requires [specific setup]
+- Example: FastAPI requires async functions for endpoints
+- Example: This ORM doesn't support batch inserts over 1000 records
+- Example: We use pydantic v2 and  
+
 
 ## Implementation Blueprint
 
 ### Data models and structure
 
 Create the core data models, we ensure type safety and consistency.
-```python
+
 Examples: 
  - orm models
  - pydantic models
  - pydantic schemas
  - pydantic validators
 
-```
 
 ### list of tasks to be completed to fullfill the PRP in the order they should be completed
 
@@ -101,29 +100,9 @@ Task N:
 ```
 
 
-### Per task pseudocode as needed added to each task
-```python
+### Per task recipes as needed added to each task
 
-# Task 1
-# Pseudocode with CRITICAL details dont write entire code
-async def new_feature(param: str) -> Result:
-    # PATTERN: Always validate input first (see src/validators.py)
-    validated = validate_input(param)  # raises ValidationError
-    
-    # GOTCHA: This library requires connection pooling
-    async with get_connection() as conn:  # see src/db/pool.py
-        # PATTERN: Use existing retry decorator
-        @retry(attempts=3, backoff=exponential)
-        async def _inner():
-            # CRITICAL: API returns 429 if >10 req/sec
-            await rate_limiter.acquire()
-            return await external_api.call(validated)
-        
-        result = await _inner()
-    
-    # PATTERN: Standardized response format
-    return format_response(result)  # see src/utils/responses.py
-```
+Do not use code snippets, but describe the steps in detail.
 
 ### Integration Points
 ```yaml
