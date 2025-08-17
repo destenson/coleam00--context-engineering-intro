@@ -1,33 +1,39 @@
-name: "Base PRP Template v2 - Context-Rich with Validation Loops"
-description: |
+# PRP: [Title - Clear, Concise Description of the Objective]
 
-## Purpose
-Template optimized for AI agents to implement features with sufficient context and self-validation capabilities to achieve working code through iterative refinement.
+## Executive Summary
 
-## Core Principles
-1. **Context is King**: Include ALL necessary documentation, examples, and caveats
-2. **Validation Loops**: Provide executable tests/lints the AI can run and fix
-3. **Information Dense**: Use keywords and patterns from the codebase
-4. **Progressive Success**: Start simple, validate, then enhance
-5. **Global rules**: Be sure to follow all rules in CLAUDE.md
+[2-3 sentences describing WHAT this PRP aims to achieve and WHY it matters to the project]
 
----
+## Problem Statement
 
-## Goal
-[What needs to be built - be specific about the end state and desires]
+### Current State
+[Describe the current situation - what exists now, what's missing, what's broken]
 
-## Why
-- [Business value and user impact]
-- [Integration with existing features]
-- [Problems this solves and for whom]
+### Desired State
+[Describe where we want to be after this PRP is implemented]
 
-## What
-[User-visible behavior and technical requirements]
+### Business Value
+[Why does this matter? What value does it provide to users/stakeholders?]
 
-### Success Criteria
-- [ ] [Specific measurable outcomes]
+## Requirements
 
-## All Needed Context
+### Functional Requirements
+[Numbered list of WHAT the system must do, not HOW]
+
+1. **[Requirement Name]**: [Description of the capability needed]
+2. **[Requirement Name]**: [Description of the capability needed]
+3. ...
+
+### Non-Functional Requirements
+[Performance, security, scalability, maintainability requirements]
+
+1. **Performance**: [e.g., "Must handle X requests per second"]
+2. **Reliability**: [e.g., "Must maintain 99.9% uptime"]
+3. **Security**: [e.g., "Must validate all user inputs"]
+4. ...
+
+### Context and Research
+[Relevant background information, research findings, or context that informs the PRP]
 
 ### Documentation & References (list all context needed to implement the feature)
 ```yaml
@@ -47,37 +53,6 @@ Template optimized for AI agents to implement features with sufficient context a
 
 ```
 
-### Current Codebase tree (run `tree` in the root of the project) to get an overview of the codebase
-```bash
-
-```
-
-### Desired Codebase tree with files to be added and responsibility of file
-```bash
-
-```
-
-### Known Gotchas of our codebase & Library Quirks
-
-- CRITICAL: [Library name] requires [specific setup]
-- Example: FastAPI requires async functions for endpoints
-- Example: This ORM doesn't support batch inserts over 1000 records
-- Example: We use pydantic v2 and  
-
-
-## Implementation Blueprint
-
-### Data models and structure
-
-Create the core data models, we ensure type safety and consistency.
-
-Examples: 
- - orm models
- - pydantic models
- - pydantic schemas
- - pydantic validators
-
-
 ### list of tasks to be completed to fullfill the PRP in the order they should be completed
 
 ```yaml
@@ -96,96 +71,79 @@ CREATE src/new_feature.py:
 
 Task N:
 ...
-
 ```
 
+### Out of Scope
+[Explicitly list what this PRP does NOT cover]
 
-### Per task recipes as needed added to each task
+- [Thing that won't be addressed]
+- [Another thing that's excluded]
 
-Do not use code snippets, but describe the steps in detail.
+## Success Criteria
 
-### Integration Points
-```yaml
-DATABASE:
-  - migration: "Add column 'feature_enabled' to users table"
-  - index: "CREATE INDEX idx_feature_lookup ON users(feature_id)"
-  
-CONFIG:
-  - add to: config/settings.py
-  - pattern: "FEATURE_TIMEOUT = int(os.getenv('FEATURE_TIMEOUT', '30'))"
-  
-ROUTES:
-  - add to: src/api/routes.py  
-  - pattern: "router.include_router(feature_router, prefix='/feature')"
-```
+[Measurable criteria to determine if the PRP has been successfully implemented]
 
-## Validation Loop
+- [ ] [Specific, measurable outcome]
+- [ ] [Another measurable outcome]
+- [ ] [User-facing or technical validation]
 
-### Level 1: Syntax & Style
-```bash
-# Run these FIRST - fix any errors before proceeding
-ruff check src/new_feature.py --fix  # Auto-fix what's possible
-mypy src/new_feature.py              # Type checking
+## Dependencies
 
-# Expected: No errors. If errors, READ the error and fix.
-```
+### Technical Dependencies
+- [External library or service required]
+- [Existing system that must be in place]
 
-### Level 2: Unit Tests each new feature/file/function use existing test patterns
-```python
-# CREATE test_new_feature.py with these test cases:
-def test_happy_path():
-    """Basic functionality works"""
-    result = new_feature("valid_input")
-    assert result.status == "success"
+### Knowledge Dependencies
+- [Documentation that must be understood]
+- [Expertise required]
 
-def test_validation_error():
-    """Invalid input raises ValidationError"""
-    with pytest.raises(ValidationError):
-        new_feature("")
+## Risks and Mitigation
 
-def test_external_api_timeout():
-    """Handles timeouts gracefully"""
-    with mock.patch('external_api.call', side_effect=TimeoutError):
-        result = new_feature("valid")
-        assert result.status == "error"
-        assert "timeout" in result.message
-```
+| Risk | Probability | Impact | Mitigation Strategy |
+|------|------------|--------|-------------------|
+| [Risk description] | Low/Medium/High | Low/Medium/High | [How to handle it] |
+| [Another risk] | Low/Medium/High | Low/Medium/High | [How to handle it] |
 
-```bash
-# Run and iterate until passing:
-uv run pytest test_new_feature.py -v
-# If failing: Read error, understand root cause, fix code, re-run (never mock to pass)
-```
+## Architecture Decisions
 
-### Level 3: Integration Test
-```bash
-# Start the service
-uv run python -m src.main --dev
+### Decision: [Title of architectural choice]
+**Options Considered:**
+1. [Option A]
+2. [Option B]
 
-# Test the endpoint
-curl -X POST http://localhost:8000/feature \
-  -H "Content-Type: application/json" \
-  -d '{"param": "test_value"}'
+**Decision:** [Which option and why - focus on trade-offs and rationale]
 
-# Expected: {"status": "success", "data": {...}}
-# If error: Check logs at logs/app.log for stack trace
-```
+**Rationale:** [Why this choice best serves the requirements]
 
-## Final validation Checklist
-- [ ] All tests pass: `uv run pytest tests/ -v`
-- [ ] No linting errors: `uv run ruff check src/`
-- [ ] No type errors: `uv run mypy src/`
-- [ ] Manual test successful: [specific curl/command]
-- [ ] Error cases handled gracefully
-- [ ] Logs are informative but not verbose
-- [ ] Documentation updated if needed
+## Validation Strategy
+
+[How will we verify that the implementation meets the requirements?]
+
+- **Unit Testing**: [What aspects need unit tests]
+- **Integration Testing**: [What integrations need testing]
+- **User Acceptance**: [How users will validate the solution]
+
+## Future Considerations
+
+[What might come next after this PRP? What doors does this open?]
+
+- [Potential future enhancement]
+- [Possible follow-up work]
+
+## References
+
+[Links to relevant documentation, standards, or specifications - but NOT implementation examples]
+
+- [Relevant specification or standard]
+- [Domain documentation]
+- [Business requirements document]
 
 ---
 
-## Anti-Patterns to Avoid
-- ❌ Don't create new patterns when existing ones work
-- ❌ Don't skip validation because "it should work"  
-- ❌ Don't ignore failing tests - fix them
-- ❌ Don't use sync functions in async context
-- ❌ Don't hardcode values that should be config
-- ❌ Don't catch all exceptions - be specific
+## PRP Metadata
+
+- **Author**: [Name]
+- **Created**: [Date]
+- **Last Modified**: [Date]
+- **Status**: Draft | In Review | Approved | Implemented
+- **Confidence Level**: [1-10] - [Rationale for confidence score]
