@@ -8,7 +8,7 @@ Make sure to check README.md, TODO.md, and any other relevant documentation file
 
 0. **Initial Setup**
    - Read through README.md and TODO.md for context
-   - Familiarize yourself with the project structure
+   - Familiarize yourself with the project structure (by using the List tool to list files and directories)
    - Check the git log for recent changes and PRs
 
 1. **Check Implementation Status**
