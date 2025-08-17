@@ -11,6 +11,8 @@ Generate as many complete PRPs as needed for the specified feature implementatio
 
 The AI agent only gets the context you are appending to the PRP and training data. Assuma the AI agent has access to the codebase and the same knowledge cutoff as you, so its important that your research findings are included or referenced in the PRP. The Agent has Websearch capabilities, so pass urls to documentation and examples.
 
+***IMPORTANT***: DO NOT WRITE CODE IN PRPs. DO NOT WRITE EXAMPLES IN PRPs.
+
 ## Research Process
 
 1. **Codebase Analysis**
@@ -37,7 +39,7 @@ Using PRPs/templates/prp_base.md as template:
 
 ### Critical Context to Include and pass to the AI agent as part of the PRP
 - **Documentation**: URLs with specific sections
-- **Code Examples**: Real snippets from codebase
+- **Code Examples**: DO NOT USE code snippets... **DO NOT PUT CODE IN THE PRP**... FOCUS ON THE WHAT, WHERE, AND WHY, _NOT_ THE HOW.
 - **Gotchas**: Library quirks, version issues
 - **Patterns**: Existing approaches to follow
 
