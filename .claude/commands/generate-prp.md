@@ -39,7 +39,7 @@ Using PRPs/templates/prp_base.md as template:
 
 ### Critical Context to Include and pass to the AI agent as part of the PRP
 - **Documentation**: URLs with specific sections
-- **Code Examples**: DO NOT USE code snippets... **DO NOT PUT CODE IN THE PRP**... FOCUS ON THE WHAT, WHERE, AND WHY, _NOT_ THE HOW.
+- **Code Examples**: DO NOT USE code snippets... **DO NOT PUT CODE IN THE PRP**... FOCUS ON THE WHO, WHAT, AND WHY, _NOT_ THE HOW.
 - **Gotchas**: Library quirks, version issues
 - **Patterns**: Existing approaches to follow
 
