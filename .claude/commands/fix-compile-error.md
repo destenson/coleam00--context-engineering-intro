@@ -1,39 +1,49 @@
 # Fix Compile Errors
 
-Analyze the current project and fix any compile errors present in the codebase.
+Analyze and fix compilation errors in the codebase.
 
 ## Compile Error: $ARGUMENTS
 
-If $ARGUMENTS is provided, it may be information like compiler output, a specific file path, error code, or description of the compile error. Use this information to locate and understand the error context.
+If $ARGUMENTS is provided, it may be compiler output, file path, error code, or error description. Use this to locate and understand the error context.
 
 ## Execution Process
 
 1. **Identify the error**
-   - Read the compiler output carefully to identify the nature of the error.
-   - Locate the specific file and line number mentioned in the error message.
-   - Understand the context of the error by reviewing the surrounding code.
+   - Parse compiler output to extract error type, location, and message
+   - Identify the programming language and build system
+   - Locate the specific file and line number
+   - Understand the context by reviewing related code
 
-2. **Think out loud**
-   - Identify potential causes of the compile error.
-   - Consider different possibilities, such as syntax errors, type mismatches, missing imports, or incorrect configurations.
-   - Discuss the implications of the error and how it may reveal issues in other parts of the codebase.
-3. **Create a plan**
-   - Use the TodoWrite tool to create and track your plan.
-   - Eliminate the bad ideas and outline a plan to fix the error, including any necessary changes to the code or configuration.
-   - Create a comprehensive test plan to validate the fix and ensure no other parts of the codebase are affected.
+2. **Categorize error type**:
+   - **Syntax errors**: Missing semicolons, brackets, quotes
+   - **Type errors**: Type mismatches, undefined variables
+   - **Import/dependency errors**: Missing modules, circular imports
+   - **Configuration errors**: Build settings, compiler flags
+   - **Environment errors**: Missing tools, wrong versions
 
-4. **Execute the plan**
-   - Execute the plan
-   - Implement all the code
+3. **Language-specific analysis**:
+   - **Rust**: Check Cargo.toml, use `cargo check`, analyze borrow checker errors
+   - **Python**: Check imports, indentation, virtual environment
+   - **JavaScript/TypeScript**: Check package.json, tsconfig, module resolution
+   - **C/C++**: Check headers, linking, compiler flags
 
-5. **Validate**
-   - Run each validation command
-   - Fix any failures
-   - Re-run until all pass
+4. **Create fix plan**:
+   - Use the TodoWrite tool to create and track your plan
+   - Identify root cause (not just symptoms)
+   - Plan minimal changes to resolve error
+   - Consider impact on other parts of codebase
+   - Plan validation steps
 
-6. **Complete**
-   - Ensure all checklist items done
-   - Run final validation suite
-   - Report completion status
+5. **Execute the fix**:
+   - Make targeted changes to resolve the error
+   - Test incrementally if multiple changes needed
+   - Update related documentation if necessary
 
-Note: If validation fails, fix and retry.
+6. **Validate**:
+   - Run compiler again to confirm fix
+   - Run relevant tests to ensure no regression
+   - Check for new errors introduced by changes
+
+## Output
+
+Provide the specific changes made, explanation of why they fix the error, and confirmation that compilation succeeds.

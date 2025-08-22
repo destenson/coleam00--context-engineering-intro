@@ -4,37 +4,49 @@ Debug specific issues with context from error logs/descriptions.
 
 ## Bug Description: $ARGUMENTS
 
-If $ARGUMENTS is provided, it may be information like compiler output, a specific file path, error code, or description of the bug. Use this information to locate and understand the error context.
+If $ARGUMENTS is provided, it may be error logs, stack traces, file paths, or bug descriptions. Use this to locate and understand the issue context.
 
 ## Execution Process
 
-1. **Identify the bug**
-   - Read the error message carefully to identify the nature of the bug.
-   - Locate the specific file and line number mentioned in the error message.
-   - Understand the context of the bug by reviewing the surrounding code.
+1. **Reproduce the bug**
+   - Understand the steps to trigger the bug
+   - Identify the expected vs actual behavior
+   - Note environmental factors (OS, browser, data, etc.)
+   - Capture detailed error information
 
-2. **Think out loud**
-   - Identify potential causes of the bug.
-   - Consider different possibilities, such as logic errors, incorrect assumptions, or edge cases.
-   - Discuss the implications of the bug and how it may reveal issues in other parts of the codebase.
+2. **Analyze the problem**:
+   - **Runtime errors**: Stack traces, memory issues, null pointers
+   - **Logic errors**: Incorrect calculations, wrong conditions
+   - **Integration errors**: API failures, database issues
+   - **Performance bugs**: Timeouts, memory leaks, infinite loops
+   - **UI/UX bugs**: Display issues, interaction problems
 
-3. **Create a plan**
-   - Use the TodoWrite tool to create and track your plan.
-   - Eliminate the bad ideas and outline a plan to fix the bug, including any necessary changes to the code or configuration.
-   - Create a comprehensive test plan to validate the fix and ensure no other parts of the codebase are affected.
+3. **Debugging techniques**:
+   - Add strategic logging/debugging statements
+   - Use debugger to step through problematic code
+   - Isolate the issue with minimal test cases
+   - Check recent changes that might have introduced the bug
+   - Review assumptions about data, state, or external systems
 
-4. **Execute the plan**
-   - Execute the plan
-   - Implement all the code
+4. **Root cause analysis**:
+   - Trace the bug to its source (not just where it manifests)
+   - Consider edge cases and boundary conditions
+   - Check for race conditions or timing issues
+   - Examine error handling and fallback logic
 
-5. **Validate**
-   - Run each validation command
-   - Fix any failures
-   - Re-run until all pass
+5. **Create fix plan**:
+   - Use the TodoWrite tool to create and track your plan
+   - Design solution that addresses root cause
+   - Consider impact on existing functionality
+   - Plan comprehensive test cases
+   - Document the fix for future reference
 
-6. **Complete**
-   - Ensure all checklist items done
-   - Run final validation suite
-   - Report completion status
+6. **Execute and validate**:
+   - Implement the fix with minimal changes
+   - Test the specific bug scenario
+   - Run full test suite to prevent regressions
+   - Verify the fix handles edge cases
 
-Note: If validation fails, fix and retry.
+## Output
+
+Provide explanation of the root cause, the fix implemented, and confirmation that the bug is resolved with proper testing.

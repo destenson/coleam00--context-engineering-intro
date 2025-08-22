@@ -1,40 +1,54 @@
-# Refactor code
+# Refactor Code
 
-Improve code structure while maintaining functionality
+Improve code structure while maintaining functionality.
 
 ## Code Smell: $ARGUMENTS
 
-If $ARGUMENTS is provided, it may be information like a specific file path, code snippet, or description of the code smell. Use this information to locate and understand the code context.
+If $ARGUMENTS is provided, it may be file paths, code snippets, or descriptions of code smells. Use this to locate and understand the refactoring target.
 
 ## Execution Process
 
-1. **Identify the code smell**
-   - Read the code carefully to identify the nature of the code smell.
-   - Locate the specific file and line number mentioned in the code smell description.
-   - Understand the context of the code smell by reviewing the surrounding code.
+1. **Identify code smells**:
+   - **Long methods/functions**: Break into smaller, focused functions
+   - **Duplicate code**: Extract common logic into reusable functions
+   - **Large classes**: Split responsibilities using single responsibility principle
+   - **Deep nesting**: Use early returns, guard clauses, or strategy patterns
+   - **Magic numbers**: Replace with named constants
+   - **God objects**: Decompose into focused, cohesive components
 
-2. **Think out loud**
-   - Identify potential causes of the code smell.
-   - Consider different possibilities, such as duplicated code, long methods, or large classes.
-   - Discuss the implications of the code smell and how it may reveal issues in other parts of the codebase.
+2. **Analyze current design**:
+   - Understand the existing functionality completely
+   - Identify dependencies and coupling points
+   - Map out data flow and control flow
+   - Note any existing tests that cover the code
 
-3. **Create a plan**
-   - Use the TodoWrite tool to create and track your plan.
-   - Eliminate the bad ideas and outline a plan to refactor the code, including any necessary changes to the code or configuration.
-   - Create a comprehensive test plan to validate the refactor and ensure no other parts of the codebase are affected.
+3. **Plan refactoring strategy**:
+   - Use the TodoWrite tool to create and track your plan
+   - Choose appropriate refactoring patterns:
+     - **Extract method**: Split large functions
+     - **Extract class**: Separate concerns
+     - **Move method**: Improve cohesion
+     - **Rename**: Improve clarity
+     - **Introduce parameter object**: Reduce parameter lists
+     - **Replace conditional with polymorphism**: Eliminate complex if/else chains
 
-4. **Execute the plan**
-   - Execute the plan
-   - Implement all the code
+4. **Execute refactoring**:
+   - Make small, incremental changes
+   - Run tests after each change to ensure functionality preserved
+   - Update related documentation and comments
+   - Maintain consistent coding style and conventions
 
-5. **Validate**
-   - Run each validation command
-   - Fix any failures
-   - Re-run until all pass
+5. **Validate improvements**:
+   - Verify all tests pass
+   - Check that performance is not negatively impacted
+   - Ensure code is more readable and maintainable
+   - Confirm adherence to project patterns and standards
 
-6. **Complete**
-   - Ensure all checklist items done
-   - Run final validation suite
-   - Report completion status
+6. **Document changes**:
+   - Update comments and documentation
+   - Note any API changes or breaking changes
+   - Document design decisions for future maintainers
 
-Note: If validation fails, fix and retry.
+## Output
+
+Provide refactored code with explanation of improvements made, design decisions, and confirmation that functionality is preserved.
