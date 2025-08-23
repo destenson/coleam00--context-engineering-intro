@@ -6,6 +6,8 @@ Scan codebase for TODO/FIXME comments and update the project TODO list.
 
 1. **Scan for TODO items** in code:
    - Search for TODO, FIXME, HACK, XXX, NOTE comments
+   - Search for variables prefixed with underscore (indicating it's unused)
+   - Search for "for now", "actual", "later", "temporary" comments
    - Check issue trackers or project management tools
    - Review recent commit messages for mentioned tasks
 
