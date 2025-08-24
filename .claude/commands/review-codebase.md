@@ -2,7 +2,7 @@
 
 Comprehensively review the current codebase, assess its current state, and recommend the most impactful next action.
 
-Make sure to check README.md, TODO.md, and any other relevant documentation files in the codebase.
+Make sure to check README.md, TODO.md, BUGS.md, and any other relevant documentation files in the codebase.
 
 ## Phase 1: Current State Analysis
 
