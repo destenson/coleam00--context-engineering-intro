@@ -4,7 +4,7 @@ Implement a feature using using the PRP file. Start by reading `codebase-review-
 
 ## PRP File: $ARGUMENTS
 
-If $ARGUMENTS is provided, use it to customize the execution of the PRP. If not, follow the recommendation in `codebase-review-report.md`.
+If $ARGUMENTS is provided, use it to customize the execution of the PRP. If not, follow the recommendation in `codebase-review-report.md`. PRP files are located in PRPs/*.md.
 
 ## Execution Process
 
@@ -25,6 +25,9 @@ If $ARGUMENTS is provided, use it to customize the execution of the PRP. If not,
 3. **Execute the plan**
    - Execute the PRP
    - Implement all the code
+     - Follow existing code patterns (read the APIs you're using, RTFM, use Grep & websearch to find examples)
+     - Write unit tests for all new code
+   - Document all new functionality and design decisions
 
 4. **Validate**
    - Run each validation command
