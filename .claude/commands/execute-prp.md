@@ -4,7 +4,7 @@ Implement a feature using using the PRP file. Start by reading `codebase-review-
 
 ## PRP File: $ARGUMENTS
 
-If $ARGUMENTS is provided, use it to customize the execution of the PRP. If not, follow the recommendation in `codebase-review-report.md`. PRP files are located in PRPs/*.md.
+If $ARGUMENTS is provided, use it to customize the execution of the PRP. If not, follow the recommendation in `codebase-review-report.md` and/or `TODO.md`. PRP files are located in PRPs/*.md.
 
 ## Execution Process
 
