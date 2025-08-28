@@ -53,10 +53,10 @@ For each PRP that needs updating:
 - Add an "Implementation Notes" section to capture deviations:
   ```markdown
   ## Implementation Notes
-  - **Design Decision**: Used Arc<RwLock> instead of planned Mutex for better read performance
-  - **Deviation**: Implemented as separate crate instead of module (better separation)
-  - **Enhancement**: Added caching layer not in original plan (performance requirement)
-  - **Simplification**: Removed planned abstraction layer (YAGNI principle)
+  - **Design Decision**: [What changed] and [Why it was better]
+  - **Deviation**: [What differs from plan] ([Reason for change])
+  - **Enhancement**: [What was added beyond plan]
+  - **Simplification**: [What was removed or simplified]
   ```
 - **Preserve the original PRP content** - only add status, don't remove planning text
 - **Document WHY** things deviated when patterns don't match the plan
@@ -101,22 +101,12 @@ Generate a concise report showing:
 - **Test Coverage**: `ADD unit tests` → Check for test files
 - **Documentation**: `UPDATE README.md` → Often outdated, skip or note
 
-## Common Deviation Patterns
+## Common Deviation Patterns to Look For
 
-- **Structural Changes**:
-  - Planned: Single module → Implemented: Separate crate
-  - Planned: Multiple files → Implemented: Single file (simpler)
-  - Planned: Nested modules → Implemented: Flat structure
-
-- **Technical Decisions**:
-  - Planned: Custom implementation → Implemented: Used library
-  - Planned: Sync code → Implemented: Async (performance)
-  - Planned: Generic trait → Implemented: Concrete types (simpler)
-
-- **Scope Changes**:
-  - Additional features added (note as "Enhancement")
-  - Features removed (note as "Simplified" or "Out of scope")
-  - Different approach taken (note as "Design decision")
+- **Structural Changes**: Files/modules organized differently than planned
+- **Technical Decisions**: Different implementation approach taken
+- **Scope Changes**: Features added, removed, or modified from original plan
+- **Naming Changes**: Components renamed for clarity or consistency
 
 ## Output Format
 
@@ -130,15 +120,15 @@ Generate a concise report showing:
 - Dashboard: PRPs/README.md updated
 
 ### Updated PRPs
-- PRP-01: Core Infrastructure - Updated to COMPLETE (all modules exist)
-- PRP-07: source-videos - Updated to COMPLETE (extensive implementation)
-- PRP-09: Test Orchestration - Updated to COMPLETE (all scripts exist)
+- PRP-XX: [Title] - Updated to [STATUS] ([reason])
+- PRP-YY: [Title] - Updated to [STATUS] ([reason])
+- PRP-ZZ: [Title] - Updated to [STATUS] ([reason])
 [... list all updated PRPs ...]
 
 ### Key Findings
-- Most "Draft" PRPs are actually implemented
-- source-videos crate is fully functional but marked Draft
-- Test orchestration complete but success criteria unchecked
+- [Finding 1 about PRP status vs implementation]
+- [Finding 2 about major deviations discovered]
+- [Finding 3 about completion patterns]
 ```
 
 ## PRPs/README.md Dashboard Format
@@ -160,9 +150,9 @@ Last Updated: YYYY-MM-DD by analyze-prps command
 ## Status Details
 | PRP | Title | Status | Completion | Last Verified | Notes |  
 |-----|-------|--------|------------|---------------|-------|
-| PRP-01 | Core Infrastructure | ✅ COMPLETE | 8/8 tasks | YYYY-MM-DD | - |
-| PRP-02 | GStreamer Pipeline | 🔄 PARTIAL | 5/10 tasks | YYYY-MM-DD | Deviation: Async |
-| PRP-03 | Source Control | ❌ NOT STARTED | 0/6 tasks | YYYY-MM-DD | - |
+| PRP-01 | [Title] | ✅ COMPLETE | X/X tasks | YYYY-MM-DD | - |
+| PRP-02 | [Title] | 🔄 PARTIAL | Y/Z tasks | YYYY-MM-DD | [Note] |
+| PRP-03 | [Title] | ❌ NOT STARTED | 0/W tasks | YYYY-MM-DD | - |
 [... continue for all PRPs ...]
 
 ## Recent Changes
